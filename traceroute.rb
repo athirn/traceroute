@@ -13,7 +13,7 @@ begin
 	rows= db.execute("select * from results")
 rescue => detail
 	#database not initialized
-	db.execute("CREATE TABLE results( time DATETIME, hop INTEGER);")
+	db.execute("CREATE TABLE results( time DATE PRIMARY KEY, hop1_ip TEXT, hop1_time REAL, hop2_ip TEXT, hop2_time REAL, hop3_ip TEXT, hop3_time REAL,hop4_ip TEXT, hop4_time REAL,hop5_ip TEXT, hop5_time REAL);")
 end
 
 #
@@ -42,6 +42,15 @@ lines.each {|line|
 
 	#put fields into database
 	time= Time.now()
+
+	#if 1st row
+	# INSERT INTO results (time,hop1_ip,hop1_time) VALUES ( ,)
+	#if 2nd row
+	# UPDATE results SET hop2_time= $(), hop2_ip= ${} WHERE time = ${}
+	#if 3rd row
+	# UPDATE results SET hop3_time= $(), hop3_ip= ${} WHERE time = ${}
+	# UPDATE results SET hop4_time= $(), hop4_ip= ${} WHERE time = ${}
+	# UPDATE results SET hop5_time= $(), hop5_ip= ${} WHERE time = ${}
 
 	#save in database
 }
